@@ -3,247 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jimel Leones | Digital IT Profile</title>
+<title>Jimel Leones | Hacker Profile</title>
 
 <style>
-:root {
-    --bg-dark: #050b14;
-    --glass: rgba(255,255,255,0.08);
-    --neon: #00eaff;
-    --text: #dce7ff;
-}
-
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Courier New', monospace;
+    background: black;
+    overflow: hidden;
+}
+
+/* MATRIX */
+canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+/* BG IMAGE */
+.bg {
+    position: fixed;
+    inset: 0;
     background:
-        radial-gradient(circle at top, #0b1d3a, #02060f);
-    color: var(--text);
-    min-height: 100vh;
-    padding: 30px;
+        linear-gradient(rgba(0,0,0,.92), rgba(0,0,0,.92)),
+        url("hacker-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    z-index: 1;
 }
 
-/* ===== LAYOUT ===== */
-.wrapper {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 25px;
-}
-
-/* ===== LEFT PANEL ===== */
-.profile {
-    background: var(--glass);
-    backdrop-filter: blur(12px);
-    border-radius: 18px;
-    padding: 25px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.12);
-}
-
-.profile img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--neon);
-    margin-bottom: 15px;
-}
-
-.profile h1 {
-    font-size: 22px;
-    margin: 10px 0 5px;
-}
-
-.profile span {
-    font-size: 13px;
-    color: #9fb3ff;
-    letter-spacing: 1px;
-}
-
-/* ===== INFO BOXES ===== */
-.info {
-    margin-top: 25px;
-    text-align: left;
-}
-
-.info-box {
-    background: rgba(255,255,255,0.06);
-    border-radius: 14px;
-    padding: 15px;
-    margin-bottom: 12px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.info-box small {
-    color: #8faeff;
-    font-size: 11px;
-}
-
-.info-box p {
-    margin: 6px 0 0;
-    font-size: 14px;
-}
-
-/* ===== RIGHT PANEL ===== */
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.section {
-    background: var(--glass);
-    backdrop-filter: blur(14px);
-    border-radius: 18px;
-    padding: 25px;
-    border: 1px solid rgba(255,255,255,0.12);
-}
-
-.section h2 {
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: var(--neon);
-    margin-bottom: 15px;
-}
-
-/* ===== JOURNEY ===== */
-.journey {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #cfe1ff;
-}
-
-/* ===== SKILLS ===== */
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-}
-
-.skill {
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 14px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-.skill h3 {
-    margin: 10px 0 5px;
-    font-size: 18px;
-}
-
-.skill span {
-    font-size: 12px;
-    color: #9fb3ff;
-}
-
-/* ===== SOCIAL ===== */
-.socials {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.socials a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
+/* ACCESS */
+#access {
+    position: fixed;
+    inset: 0;
+    background: black;
+    color: #00ff88;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--neon);
+    font-size: 20px;
+    z-index: 10;
+}
+
+/* CONTAINER */
+.container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: rgba(0,0,0,.85);
+    max-width: 480px;
+    width: 100%;
+    padding: 25px;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    box-shadow: 0 0 30px rgba(0,255,136,.4);
+    position: relative;
+    animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+    from { box-shadow: 0 0 20px rgba(0,255,136,.25); }
+    to   { box-shadow: 0 0 35px rgba(0,255,136,.55); }
+}
+
+/* TERMINAL CORNERS */
+.card::before, .card::after {
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    border:2px solid #00ff88;
+}
+.card::before {
+    top:-2px; left:-2px;
+    border-right:none; border-bottom:none;
+}
+.card::after {
+    bottom:-2px; right:-2px;
+    border-left:none; border-top:none;
+}
+
+/* IMAGE */
+.profile-img {
+    width: 90px;
+    height: 90px;
+    border: 2px solid #00ff88;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+h1 { font-size: 22px; margin: 6px 0; }
+.subtitle { font-size: 13px; color: #9affc5; }
+
+.section { margin-top: 18px; }
+.section-title {
+    font-size: 13px;
+    border-bottom: 1px solid #00ff88;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 13px;
+    color: #9affc5;
+    line-height: 1.6;
+}
+
+/* COMMAND LINE */
+.cmd {
+    font-size: 12px;
+    color: #00ff88;
+    margin-bottom: 6px;
+}
+.cmd span { color: #9affc5; }
+
+/* SKILLS */
+.skillbar {
+    margin-bottom: 8px;
+}
+.bar {
+    height: 6px;
+    background: #003f2a;
+    border: 1px solid #00ff88;
+}
+.fill {
+    height: 100%;
+    background: #00ff88;
+}
+
+/* SOCIAL */
+.socials a {
+    display: inline-block;
+    margin: 8px 8px 0 0;
     text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 6px 12px;
+    font-size: 12px;
 }
-
 .socials a:hover {
-    background: var(--neon);
-    color: #000;
+    background: #00ff88;
+    color: black;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-    .wrapper {
-        grid-template-columns: 1fr;
-    }
+/* CURSOR */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    background: #00ff88;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .card { padding: 18px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<canvas id="matrix"></canvas>
+<div class="bg"></div>
 
-    <!-- LEFT PROFILE -->
-    <div class="profile">
-        <img src="amel.jpg" alt="Jimel Leones">
+<div id="access">ACCESSING SYSTEM<span class="cursor"></span></div>
 
-        <h1>Jimel Leones</h1>
-        <span>DIGITAL IT STUDENT</span>
+<div class="container">
+<div class="card">
 
-        <div class="info">
-            <div class="info-box">
-                <small>ACADEMIC PATH</small>
-                <p>Bachelor of Science in Information Technology</p>
-            </div>
+<img src="amel.jpg" class="profile-img">
 
-            <div class="info-box">
-                <small>INSTITUTION</small>
-                <p>ACLC College</p>
-            </div>
-        </div>
+<h1>Jimel Leones</h1>
+<div class="subtitle">Information Technology Student</div>
+<div class="subtitle">Cybersecurity | Web | Systems</div>
 
-        <div class="socials">
-            <a href="#">F</a>
-            <a href="#">I</a>
-            <a href="#">T</a>
-        </div>
-    </div>
+<div class="section">
+<div class="cmd">> whoami</div>
+<p>
+IT student focused on system development, cybersecurity awareness,
+and modern web technologies. Passionate about understanding systems
+behind the scenes.
+</p>
+</div>
 
-    <!-- RIGHT CONTENT -->
-    <div class="content">
+<div class="section">
+<div class="cmd">> skills --level</div>
 
-        <div class="section">
-            <h2>JOURNEY & VISION</h2>
-            <div class="journey">
-                My journey in Information Technology is driven by curiosity,
-                discipline, and creativity. Through continuous learning and
-                digital exploration, I aim to build meaningful systems that
-                connect people and technology with purpose.
-            </div>
-        </div>
+<div class="skillbar">
+HTML
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
 
-        <div class="section">
-            <h2>CORE COMPETENCIES</h2>
-            <div class="skills">
-                <div class="skill">
-                    <h3>&lt;/&gt;</h3>
-                    <span>Web Development</span>
-                </div>
-                <div class="skill">
-                    <h3>⚙</h3>
-                    <span>System Thinking</span>
-                </div>
-                <div class="skill">
-                    <h3>🚀</h3>
-                    <span>2026 Goals</span>
-                </div>
-            </div>
-        </div>
+<div class="skillbar">
+CSS
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
 
-    </div>
+<div class="skillbar">
+JavaScript
+<div class="bar"><div class="fill" style="width:75%"></div></div>
+</div>
+
+<div class="skillbar">
+PHP
+<div class="bar"><div class="fill" style="width:70%"></div></div>
+</div>
+</div>
+
+<div class="section">
+<div class="cmd">> contact --info</div>
+<p>📧 jimelleones@gmail.com</p>
+<p>📍 Philippines</p>
+</div>
+
+<div class="socials">
+<a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
+<a href="mailto:jimelleones@gmail.com">Email</a>
+</div>
+
+<div class="section">
+<div class="cmd">> system_status</div>
+<p>ONLINE | last_login: <span id="login"></span><span class="cursor"></span></p>
+</div>
 
 </div>
+</div>
+
+<script>
+/* ACCESS */
+setTimeout(() => {
+    document.getElementById("access").style.display = "none";
+    document.querySelector(".container").style.display = "flex";
+}, 2500);
+
+/* MATRIX */
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const letters = "01";
+const fontSize = 14;
+let columns = canvas.width / fontSize;
+let drops = Array(Math.floor(columns)).fill(1);
+
+function drawMatrix() {
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#00ff88";
+    ctx.font = fontSize + "px monospace";
+
+    drops.forEach((y,i)=>{
+        const text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text, i*fontSize, y*fontSize);
+        if(y*fontSize > canvas.height && Math.random()>0.975) drops[i]=0;
+        drops[i]++;
+    });
+}
+setInterval(drawMatrix, 33);
+
+/* LOGIN TIME */
+document.getElementById("login").textContent =
+    new Date().toLocaleString();
+</script>
 
 </body>
 </html>
