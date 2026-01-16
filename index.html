@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background: #fff;
+        width: 90%;
+        max-width: 400px;
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        position: relative;
+    }
+
+    .card::before,
+    .card::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: #ffb703;
+        border-radius: 50%;
+    }
+
+    .card::before {
+        top: -15px;
+        left: -15px;
+    }
+
+    .card::after {
+        bottom: -15px;
+        right: -15px;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 5px solid #764ba2;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        margin: 10px 0 5px;
+        color: #333;
+    }
+
+    p {
+        color: #555;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .socials a {
+        display: inline-block;
+        margin: 10px;
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 30px;
+        font-size: 14px;
+        transition: transform 0.3s;
+    }
+
+    .socials a:hover {
+        transform: scale(1.1);
+    }
+
+    .fb {
+        background: #1877f2;
+    }
+
+    footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #888;
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 13px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <img src="https://i.imgur.com/0y0y0y0.png" alt="Profile Image" class="profile-img">
+
+    <h1>Jimel Leones</h1>
+    <p>
+        Information Technology Student<br>
+        Aspiring Web Developer & Designer
+    </p>
+
+    <div class="socials">
+        <a href="https://www.facebook.com/yourprofile" target="_blank" class="fb">
+            Facebook
+        </a>
+    </div>
+
+    <footer>
+        © 2026 | My Profile Page
+    </footer>
+</div>
+
+</body>
+</html>
