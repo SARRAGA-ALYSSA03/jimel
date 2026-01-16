@@ -3,29 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jimel Leones | Profile</title>
+<title>Jimel Leones | IT Profile</title>
 
 <style>
     body {
         margin: 0;
         font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #667eea, #764ba2);
         min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px;
+
+        /* IT STYLE BACKGROUND */
+        background:
+            linear-gradient(rgba(5,10,30,0.85), rgba(5,10,30,0.85)),
+            url("https://images.unsplash.com/photo-1518770660439-4636190af475") 
+            no-repeat center center fixed;
+        background-size: cover;
     }
 
     .card {
-        background: #fff;
+        background: rgba(255, 255, 255, 0.95);
         width: 100%;
         max-width: 420px;
         padding: 25px;
         border-radius: 20px;
         text-align: center;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         position: relative;
+        backdrop-filter: blur(6px);
     }
 
     .card::before,
@@ -34,7 +41,7 @@
         position: absolute;
         width: 35px;
         height: 35px;
-        background: #ffb703;
+        background: #00c6ff;
         border-radius: 50%;
     }
 
@@ -52,25 +59,25 @@
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        border: 4px solid #764ba2;
+        border: 4px solid #00c6ff;
         object-fit: cover;
         margin-bottom: 15px;
     }
 
     h1 {
         margin: 10px 0 5px;
-        color: #222;
+        color: #111;
     }
 
     h2 {
         font-size: 16px;
-        color: #764ba2;
+        color: #0072ff;
         margin-top: 25px;
         margin-bottom: 10px;
     }
 
     p {
-        color: #555;
+        color: #333;
         font-size: 14px;
         line-height: 1.6;
     }
@@ -84,7 +91,7 @@
     }
 
     .skill {
-        background: #764ba2;
+        background: linear-gradient(135deg, #0072ff, #00c6ff);
         color: #fff;
         padding: 6px 12px;
         border-radius: 20px;
@@ -114,25 +121,15 @@
         background: #e63946;
     }
 
-    .contact p {
-        font-size: 13px;
-        color: #444;
-        margin: 6px 0;
-    }
-
     footer {
         margin-top: 25px;
         font-size: 12px;
-        color: #888;
+        color: #666;
     }
 
     @media (max-width: 480px) {
         h1 {
             font-size: 22px;
-        }
-
-        p {
-            font-size: 13px;
         }
     }
 </style>
@@ -146,14 +143,14 @@
     <h1>Jimel Leones</h1>
     <p>
         Information Technology Student <br>
-        Aspiring Web Developer & UI Designer
+        Aspiring Web Developer & System Designer
     </p>
 
     <h2>About Me</h2>
     <p>
-        I am an Information Technology student with a strong interest in web development,
-        system design, and creative problem-solving. I enjoy learning new technologies,
-        designing user-friendly interfaces, and building simple yet functional web projects.
+        I am an IT student passionate about web development, computer systems,
+        and modern technologies. I enjoy creating clean, responsive designs
+        and learning how technology solves real-world problems.
     </p>
 
     <h2>Skills</h2>
@@ -162,15 +159,13 @@
         <span class="skill">CSS</span>
         <span class="skill">JavaScript</span>
         <span class="skill">PHP</span>
-        <span class="skill">UI Design</span>
-        <span class="skill">Responsive Design</span>
+        <span class="skill">UI/UX</span>
+        <span class="skill">Networking Basics</span>
     </div>
 
     <h2>Contact Me</h2>
-    <div class="contact">
-        <p>📧 Email: jimelleones@gmail.com</p>
-        <p>📍 Philippines</p>
-    </div>
+    <p>📧 jimelleones@gmail.com</p>
+    <p>📍 Philippines</p>
 
     <div class="socials">
         <a href="https://www.facebook.com/yourprofile" target="_blank" class="fb">
